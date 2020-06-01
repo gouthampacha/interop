@@ -9,7 +9,7 @@ The following list represents the "guiding principles" used by the
 Foundation Board to determine how commercial implementations of OpenStack
 can be granted use of the trademark. They will continue to get refined over
 the next 6 months as the to-be-renamed-Core-Definition Committee refines
-the must-pass test selection process and governance. They committee may
+the must-pass test selection process and governance. The committee may
 suggest changes to the by-laws to clarify the definition of core.
 
 ::
@@ -43,7 +43,7 @@ Principles
    2. We want to make sure that the OpenStack™ mark means something.
 
    3. The OpenStack™ mark is not the same as the OpenStack brand; however,
-      the Board uses it’s control of the mark as a proxy to help manage the
+      the Board uses its control of the mark as a proxy to help manage the
       brand.
 
 2. Core is a subset of the whole project
@@ -70,7 +70,7 @@ Principles
 
 4. Claiming OpenStack requiring use of designated upstream code
 
-   1. Implementation’s claiming the OpenStack™ mark must use the OpenStack
+   1. Implementations claiming the OpenStack™ mark must use the OpenStack
       upstream code (or be using code submitted to upstream)
 
    2. You are not OpenStack, if you pass all the tests but do not use the
@@ -83,7 +83,7 @@ Principles
       community
 
    5. This behavior improves interoperability because there is more shared
-      code between implementation
+      code between implementations
 
 5. Projects must have an open reference implementation
 

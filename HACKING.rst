@@ -145,13 +145,13 @@ To file a flag request for a test, follow these steps:
          }
       },
 
-#. Once you've saved your changes, commit the chage locally:
+#. Once you've saved your changes, commit the change locally:
 
    .. code-block:: console
 
      $ git commit -a
 
-   Be sure to write a useful commit message explaning your change.
+   Be sure to write a useful commit message explaining your change.
 
 #. Push the change to gerrit, where your request can be reviewed:
 
