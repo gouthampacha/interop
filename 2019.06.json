@@ -73,7 +73,7 @@
       "target_approval": "2019.06",
       "replaces": "2018.11",
       "releases": ["queens", "rocky", "stein", "train"],
-      "status": "approved"
+      "status": "superseded"
     }
   },
   "platforms": {

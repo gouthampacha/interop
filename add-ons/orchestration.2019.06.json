@@ -58,7 +58,7 @@
       "target_approval": "orchestration.2019.06",
 	  "replaces": "orchestration.2018.11",
       "releases": ["queens", "rocky", "stein", "train"],
-      "status": "approved"
+      "status": "superseded"
     }
   },
   "add-ons": {
