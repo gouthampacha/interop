@@ -57,7 +57,7 @@
     "os_trademark_approval": {
       "target_approval": "2018.11",
       "releases": ["ocata", "pike", "queens", "rocky", "stein"],
-      "status": "approved"
+      "status": "superseded"
     }
   },
   "add-ons": {
