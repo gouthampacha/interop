@@ -1,0 +1,26 @@
+Shared File System (manila) Scoring Worksheet
+=============================================
+
+Criteria in *Name* are not considered for this add-on program
+
+Capability Name: [*Widely Deployed*, Used By Tools, Used by Clients],
+                 [TC Future Direction, Complete, Stable],
+                 [Discoverable, Doc'd, Required in Last Release],
+                 [*Foundation*, Atomic, *Proximity*],
+                 [Non-Admin] [Total]
+
+Possible scores: 0, 1, ? (not scored yet or needs discussion), * (not considered)
+
+Shared File System
+------------------
+share-list-api-versions:     [*,1,1][1,1,1][1,1,0][*,1,*][1] [64]
+share-create-delete:         [*,1,1][1,1,1][1,1,0][*,1,*][1] [64]
+share-get:                   [*,1,1][1,1,1][1,1,0][*,1,*][1] [64]
+share-list:                  [*,1,1][1,1,1][1,1,0][*,1,*][1] [64]
+share-update:                [*,1,1][1,1,1][1,1,0][*,1,*][1] [64]
+share-extend:                [*,1,1][1,1,1][1,1,0][*,1,*][1] [64]
+share-shrink:                [*,1,1][1,1,1][1,1,0][*,1,*][1] [64]
+share-network-create-delete: [*,1,1][1,1,1][1,1,0][*,1,*][1] [64]
+share-network-update:        [*,1,1][1,1,1][1,1,0][*,1,*][1] [64]
+share-network-get:           [*,1,1][1,1,1][1,1,0][*,1,*][1] [64]
+share-network-list:          [*,1,1][1,1,1][1,1,0][*,1,*][1] [64]

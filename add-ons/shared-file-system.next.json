@@ -1,0 +1,388 @@
+{
+  "metadata": {
+    "id": "shared-file-system.next",
+    "schema": "2.0",
+    "reference": "https://opendev.org/osf/interop/raw/branch/master/doc/source/schema/2.0.json",
+    "source": "http://opendev.org/osf/interop/raw/branch/master/add-ons/shared-file-system.next.json",
+    "scoring": {
+      "cutoff_score": 60,
+      "criteria": {
+        "atomic": {
+          "name": "Atomic",
+          "description": "The capabilities are unique and cannot be built out of other must-pass capabilities.",
+          "weight": 6
+        },
+        "clients": {
+          "name": "Used By Clients",
+          "description": "The capabilities are widely used by common OpenStack clients, including the openstack client, nova client, neutron client, and so on. This criterion pertains mostly to API versioning. For example, if v2 of a given API is not used by other OpenStack clients but v1 is, then v2 doesn't achieve the 'used by clients' criterion.",
+          "weight": 10
+        },
+        "complete": {
+          "name": "Complete",
+          "description": "Where the code being tested has a designated area of alternate implementation (add-on framework) as per the Core Principles, there should be parity in capability tested across add-on implementations. This also implies that the capability test is not configuration specific or locked to non-open technology.",
+          "weight": 8
+        },
+        "discover": {
+          "name": "Discoverable",
+          "description": "Capability being tested is Service Discoverable (can be found in Keystone and via service introspection).",
+          "weight": 8
+        },
+        "doc": {
+          "name": "Documented",
+          "description": "The capability is well documented, including both the interface and the expected behavior.",
+          "weight": 8
+        },
+        "future": {
+          "name": "Future Direction",
+          "description": "The capability reflects the future technical direction as defined by the project technical teams and the Technical Committee.",
+          "weight": 11
+        },
+        "stable": {
+          "name": "Stable",
+          "description": "A capability that whose API has changed in more than two releases. Meant to select for capabilities that are stable and not under active development.",
+          "weight": 9
+        },
+        "sticky": {
+          "name": "Core In Last Release",
+          "description": "A capability whose API was present in the previous guideline release. Discourages the disruption of replacing the API a capability uses, or removing a capability from core.",
+          "weight": 9
+        },
+        "tools": {
+          "name": "Used By Tools",
+          "description": "Capabilities that are widely used outside of the OpenStack client ecosystem. Example tools include GopherCloud, jClouds, Fog, and so on.",
+          "weight": 6
+        }
+      }
+    },
+    "os_trademark_approval": {
+      "target_approval": "2021.04",
+      "releases": ["train", "ussuri", "victoria", "wallaby"],
+      "status": "draft"
+    }
+  },
+  "add-ons": {
+    "Shared-File-System": {
+      "description": "OpenStack Powered with Shared File Systems",
+      "components": [
+        {
+          "name": "os_powered_shared_file_system"
+        }
+      ],
+      "required_platform_components": [
+        {
+          "name": "os_powered_compute",
+          "source": "http://opendev.org/osf/interop/next.json"
+        }
+      ]
+    }
+  },
+  "components": {
+    "os_powered_shared_file_system": {
+      "capabilities": {
+        "required": [
+        ],
+        "advisory": [
+          "share-list-api-versions",
+          "share-create-delete",
+          "share-get",
+          "share-list",
+          "share-update",
+          "share-extend",
+          "share-shrink",
+          "share-network-create-delete",
+          "share-network-update",
+          "share-network-get",
+          "share-network-list"
+        ],
+        "deprecated": [
+        ],
+        "removed": [
+        ]
+      },
+      "designated_sections": {
+        "advisory": [
+          "manila"
+        ]
+      }
+    }
+  },
+  "capabilities": {
+    "share-list-api-versions": {
+      "achievements": [
+        "atomic",
+        "clients",
+        "complete",
+        "discover",
+        "doc",
+        "future",
+        "stable",
+        "tools"
+      ],
+      "admin": false,
+      "description": "List supported versions of the Shared File Systems service API",
+      "project": "manila",
+      "tests": {
+        "manila_tempest_tests.tests.api.test_microversions.MicroversionsTest.test_microversions_v2_no_version": {
+          "idempotent_id": "id-9a8bd7fd-f9d0-4fc6-8e1c-0178d87ec7c1"
+        }
+      }
+    },
+    "share-create-delete": {
+      "achievements": [
+        "atomic",
+        "clients",
+        "complete",
+        "discover",
+        "doc",
+        "future",
+        "stable",
+        "tools"
+      ],
+      "admin": false,
+      "description": "Create and delete a manila share.",
+      "project": "manila",
+      "tests": {
+        "manila_tempest_tests.tests.api.test_shares.SharesNFSTest.test_create_get_delete_share": {
+          "idempotent_id": "id-21ad41fb-04cf-493c-bc2f-66c80220898b",
+          "aliases": [
+            "manila_tempest_tests.tests.api.test_shares.SharesCephFSTest.test_create_get_delete_share",
+            "manila_tempest_tests.tests.api.test_shares.SharesCIFSTest.test_create_get_delete_share",
+            "manila_tempest_tests.tests.api.test_shares.SharesGLUSTERFSTest.test_create_get_delete_share",
+            "manila_tempest_tests.tests.api.test_shares.SharesHDFSTest.test_create_get_delete_share",
+            "manila_tempest_tests.tests.api.test_shares.SharesMapRFSTest.test_create_get_delete_share"
+          ]
+        }
+      }
+    },
+    "share-get": {
+      "achievements": [
+        "atomic",
+        "clients",
+        "complete",
+        "discover",
+        "doc",
+        "future",
+        "stable",
+        "tools"
+      ],
+      "admin": false,
+      "description": "Get details of a manila share at API microversion 2.1",
+      "project": "manila",
+      "tests": {
+        "manila_tempest_tests.tests.api.test_shares_actions.SharesActionsTest.test_get_share_v2_1": {
+          "idempotent_id": "id-188badb2-0ca3-44e5-abca-3029475d7f73"
+        }
+      }
+    },
+    "share-list": {
+      "achievements": [
+        "atomic",
+        "clients",
+        "complete",
+        "discover",
+        "doc",
+        "future",
+        "stable",
+        "tools"
+      ],
+      "admin": false,
+      "description": "List manila shares.",
+      "project": "manila",
+      "tests": {
+        "manila_tempest_tests.tests.api.test_shares_actions.SharesActionsTest.test_list_shares": {
+          "idempotent_id": "id-7d61311a-81b0-481c-abb9-cfb0b4f82e29"
+        },
+        "manila_tempest_tests.tests.api.test_shares_actions.SharesActionsTest.test_list_shares_with_detail_v2_1": {
+          "idempotent_id": "id-d88a157a-fe4d-456e-90ba-f0bd9e5d02ec"
+        }
+      }
+    },
+    "share-update": {
+      "achievements": [
+        "atomic",
+        "clients",
+        "complete",
+        "discover",
+        "doc",
+        "future",
+        "stable",
+        "tools"
+      ],
+      "admin": false,
+      "description": "Update a manila share.",
+      "project": "manila",
+      "tests": {
+        "manila_tempest_tests.tests.api.test_shares_actions.SharesRenameTest.test_update_share": {
+          "idempotent_id": "id-7661d042-8222-483c-9249-9f53931e7347"
+        }
+      }
+    },
+    "share-extend": {
+      "achievements": [
+        "atomic",
+        "clients",
+        "complete",
+        "discover",
+        "doc",
+        "future",
+        "stable",
+        "tools"
+      ],
+      "admin": false,
+      "description": "Increase the size of a manila share.",
+      "project": "manila",
+      "tests": {
+        "manila_tempest_tests.tests.api.test_shares_actions.SharesActionsTest.test_extend_share": {
+          "idempotent_id": "id-17e6f579-e0d7-4724-a639-4974e82bb5ed"
+        }
+      }
+    },
+    "share-shrink": {
+      "achievements": [
+        "atomic",
+        "clients",
+        "complete",
+        "discover",
+        "doc",
+        "future",
+        "stable",
+        "tools"
+      ],
+      "admin": false,
+      "description": "Decrease the size of a manila share.",
+      "project": "manila",
+      "tests": {
+        "manila_tempest_tests.tests.api.test_shares_actions.SharesActionsTest.test_shrink_share": {
+          "idempotent_id": "id-8f64b930-9b4e-41d7-bbd6-82d9951931f3"
+        }
+      }
+    },
+    "share-network-create-delete": {
+      "achievements": [
+        "atomic",
+        "clients",
+        "complete",
+        "discover",
+        "doc",
+        "future",
+        "stable",
+        "tools"
+      ],
+      "admin": false,
+      "description": "Create and delete a manila share network.",
+      "project": "manila",
+      "tests": {
+        "manila_tempest_tests.tests.api.test_share_networks.ShareNetworksTest.test_create_delete_share_network": {
+          "idempotent_id": "id-b998a594-f630-475d-b46f-e4143caf61fb"
+        }
+      }
+    },
+    "share-network-update": {
+      "achievements": [
+        "atomic",
+        "clients",
+        "complete",
+        "discover",
+        "doc",
+        "future",
+        "stable",
+        "tools"
+      ],
+      "admin": false,
+      "description": "Update a manila share network.",
+      "project": "manila",
+      "tests": {
+        "manila_tempest_tests.tests.api.test_share_networks.ShareNetworksTest.test_update_share_network": {
+          "idempotent_id": "id-1837fdd3-8068-4e88-bc50-9224498f84c0"
+        }
+      }
+    },
+    "share-network-get": {
+      "achievements": [
+        "atomic",
+        "clients",
+        "complete",
+        "discover",
+        "doc",
+        "future",
+        "stable",
+        "tools"
+      ],
+      "admin": false,
+      "description": "Get manila share network details.",
+      "project": "manila",
+      "tests": {
+        "manila_tempest_tests.tests.api.test_share_networks.ShareNetworksTest.test_get_share_network": {
+          "idempotent_id": "id-55990ec2-37f0-483f-9c67-76fd6f377cc1"
+        }
+      }
+    },
+    "share-network-list": {
+      "achievements": [
+        "atomic",
+        "clients",
+        "complete",
+        "discover",
+        "doc",
+        "future",
+        "stable",
+        "tools"
+      ],
+      "admin": false,
+      "description": "List manila share networks.",
+      "project": "manila",
+      "tests": {
+        "manila_tempest_tests.tests.api.test_share_networks.ShareNetworksTest.test_list_share_networks": {
+          "idempotent_id": "id-41c635b1-d9ef-4c05-9100-5e4b0034b523"
+        }
+      }
+    }
+  },
+  "designated_sections": {
+    "manila": {
+      "required": {
+        "guidance": "The Shared File Systems v2 API (with microversions) is designated",
+        "comment": "Many parts of the service are extensible by design, so only the API is designated. Scheduler and Weigher plugins for placement and Shared File System storage drivers for fulfillment are not designated.",
+        "sections": {
+          "api": {
+            "description": "The version 2 API specification with micro-versions",
+            "designated": true,
+            "comment": "CRUD APIs for some resources are designated. However, any `driver_handles_share_servers` driver mode can be used or any supported share protocol can be used."
+          },
+          "storage drivers": {
+            "description": "Shared File Systems storage drivers",
+            "designated": false,
+            "comment": "API driven actions must be fulfilled, however, no specific driver/s designated. One or more drivers can be used, and they needn't be part of the Shared File Systems service code base."
+          },
+          "network plugins": {
+            "description": "Shared File Systems network plugins",
+            "designated": false,
+            "comment": "When deployment supports hard network path data isolation guarantees to users (`driver_handles_share_servers=True`), a network fulfilment mechanism is required, but this component is replaceable and no specific network driver is expected."
+          },
+          "filter scheduler": {
+            "description": "Scheduler for the Shared File Systems service",
+            "designated": false,
+            "comment": "API driven actions must be fulfilled by a filter scheduler, but no specific scheduler filters or weighers are designated."
+          },
+          "db driver": {
+            "description": "Database driver for the Shared File Systems service",
+            "designated": false,
+            "comment": "Replaceable. No specific database required."
+          },
+          "api extensions": {
+            "description": "Implementation of Shared File System API extensions",
+            "designated": false,
+            "comment": "Replaceable, conformance is not expected."
+          }
+        }
+      }
+    }
+  },
+  "test_repositories": {
+    "manila-tempest-plugin": {
+      "repository": "https://opendev.org/openstack/manila-tempest-plugin/",
+      "reference": "master",
+      "description": "OpenStack Manila Test Plugin Repository"
+    }
+  }
+}
